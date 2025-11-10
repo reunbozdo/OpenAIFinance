@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Финансовый обзор OpenAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content container">
+      <p class="eyebrow">ФИНАНСОВЫЙ ОТЧЁТ</p>
+      <h1>OpenAI: путь от стартапа к глобальной инфраструктуре ИИ</h1>
+      <p class="hero__subtitle">
+        Интерактивный обзор ключевых показателей, инвестиционных раундов и обязательств компании с 2015 по 2025 годы.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#timeline">История финансирования</a>
+        <a class="btn btn--ghost" href="#financials">Финансовые результаты</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="highlights" class="section container">
+      <h2>Ключевые факты</h2>
+      <div class="highlights-grid" id="highlights-grid"></div>
+    </section>
+
+    <section id="timeline" class="section section--alt">
+      <div class="container">
+        <div class="section__header">
+          <h2>История финансирования и инвестиций</h2>
+          <p>
+            Нажмите на этап, чтобы увидеть подробности сделки, оценку компании и стратегический контекст.
+          </p>
+        </div>
+        <div class="timeline">
+          <div class="timeline__track" id="timeline-track"></div>
+          <div class="timeline__details" id="timeline-details"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="financials" class="section container">
+      <div class="section__header">
+        <h2>Финансовые результаты</h2>
+        <p>
+          Сравнение выручки, расходов и операционного убытка демонстрирует стратегию агрессивного роста OpenAI.
+        </p>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card__header">
+          <div>
+            <h3>Выручка vs расходы</h3>
+            <p>Данные за 2022–2025 годы (2025 — прогноз).</p>
+          </div>
+          <div class="toggle-group">
+            <button class="toggle" data-chart-toggle="revenue" aria-pressed="true">Выручка</button>
+            <button class="toggle" data-chart-toggle="expenses" aria-pressed="true">Расходы</button>
+            <button class="toggle" data-chart-toggle="losses" aria-pressed="true">Убыток</button>
+          </div>
+        </div>
+        <canvas id="financial-chart" height="240"></canvas>
+      </div>
+      <div class="metrics-grid" id="financial-metrics"></div>
+    </section>
+
+    <section id="obligations" class="section section--alt">
+      <div class="container">
+        <div class="section__header">
+          <h2>Долгосрочные обязательства по инфраструктуре</h2>
+          <p>
+            OpenAI законтрактовала свыше $1 трлн расходов на облачные мощности, оборудование и собственные чипы.
+            Сортируйте карточки по объёму обязательств.
+          </p>
+          <div class="controls">
+            <label for="obligation-sort">Сортировка:</label>
+            <select id="obligation-sort">
+              <option value="desc">По размеру (убывание)</option>
+              <option value="asc">По размеру (возрастание)</option>
+              <option value="alpha">По партнёру (А→Я)</option>
+            </select>
+          </div>
+        </div>
+        <div class="obligations-grid" id="obligations-grid"></div>
+      </div>
+    </section>
+
+    <section id="revenue-structure" class="section container">
+      <div class="section__header">
+        <h2>Структура доходов и продукты</h2>
+        <p>Выручка OpenAI формируется за счёт платных подписок, API и кастомных решений для корпораций.</p>
+      </div>
+      <div class="layout-split">
+        <div class="chart-card chart-card--compact">
+          <h3>Доля источников выручки (2024)</h3>
+          <canvas id="revenue-chart" height="220"></canvas>
+        </div>
+        <div class="list-card" id="products-list"></div>
+      </div>
+    </section>
+
+    <section id="partners" class="section section--alt">
+      <div class="container">
+        <div class="section__header">
+          <h2>Стратегические партнёрства</h2>
+          <p>Крупнейшие сделки и их значение для экосистемы OpenAI.</p>
+        </div>
+        <div class="partners-grid" id="partners-grid"></div>
+      </div>
+    </section>
+
+    <section id="forecast" class="section container">
+      <div class="section__header">
+        <h2>Прогноз инфраструктурных затрат</h2>
+        <p>Модель роста затрат и необходимой выручки для достижения целевой маржи.</p>
+      </div>
+      <div class="chart-card">
+        <canvas id="forecast-chart" height="260"></canvas>
+      </div>
+      <div class="forecast-table" id="forecast-table"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__content">
+      <p>Данные основаны на публичных сообщениях Reuters, The Information и аналитических обзорах (2022–2025 гг.).</p>
+      <p>Подготовлено специально для визуализации финансового состояния OpenAI.</p>
+    </div>
+  </footer>
+</body>
+</html>
